@@ -1,0 +1,423 @@
+/* Importaciones ---------------------------------------------------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+/* font-family: 'Poppins', sans-serif; 400 600 */
+
+
+/* Variables -------------------------------------------------------------------------- */
+:root{
+    /* COLORES */
+    --colorText: #040606;
+    --acento: #497279;
+    --primaryButton: #497279;
+    --secundaryButton: #E6EEF0;
+    --backgroundColor: #F9FBFB;
+    --colorItems: #F9FBFB;
+    --borderInput:1px solid var(--acento);
+
+    /* FONTS */
+    --title: 1rem;
+    --text: .8rem;
+
+    /* WHETH */
+    --textBold: 600;
+    --textLigth: 400;
+
+    /* SHADOWS */
+    --shadowsButtons: 0 4px 4px rgba(0, 0, 0, 0.25);
+    --shadowsComponents: 0 0 10px rgba(0, 0, 0, 0.25);
+
+    /* BORDER-RADIUS */
+    --radius: 5px;
+
+
+}
+
+/* Normalización Principal ------------------------------------------------------------ */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: var(--textLigth);
+    color: var(--colorText);
+    transition-property: transform, color, background-color, scale;
+    transition-duration: .5s;
+}
+
+.darkMode{
+    /* COLORES */
+    --backgroundColor: #0E1316;
+    --colorText: #F9FBFB;
+    --acento: #0E1316;
+    /* SHADOWS */
+    --shadowsButtons: 0 4px 4px #4972793f;
+    --shadowsComponents: 0 0 10px #4972793f;
+}
+
+body{
+    height: 100vh;
+    background-color: var(--backgroundColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+p{
+    font-size: var(--text);
+    color: var(--colorText);
+}
+::-webkit-scrollbar{
+    height: .01rem;
+    width: .01rem;
+}
+
+::-webkit-scrollbar-track{
+    background-color: transparent;
+}
+ 
+ ::-webkit-scrollbar-thumb{
+    background-color: var(--colorPrincipal);
+    border-radius: 5rem;
+}
+
+.input{
+    background-color: var(--backgroundColor);
+    border: var(--borderInput);
+    padding: .5em 1em;
+    border-radius: var(--radius);
+    width: 100%;
+    color: var(--colorText);
+}
+
+.input:active{
+    border: var(--borderInput);
+}
+.nameSection{
+    font-size: var(--title);
+    font-weight: var(--textBold);
+    text-align: center;
+}
+
+.button{
+    background-color: var(--primaryButton);
+    border: 1px solid var(--primaryButton);
+    width: 100%;
+    padding: .5em 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadowsButtons);
+    color: #F9FBFB; 
+    font-weight: var(--textBold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.button:active{
+    scale: 1.1;
+}
+
+.ventanaFlotante{
+    min-height: 100vh;
+    background-color: var(--backgroundColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    transform: translateY(-100%);
+}
+
+.ventanaFlotante--active{
+    transform: translateY(0);
+}
+.conteinerFlex{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 90%;
+    padding: 1em 1em;
+    gap: 20px;
+    margin: 0 auto;
+    padding: 100px 1em;
+    padding-bottom: 250px;
+}
+
+.conteinerItems{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.item{
+    border-radius: var(--radius);
+    border: var(--borderInput);
+    display: flex;
+    justify-content: space-between;
+    padding: .5em 1em ;
+}
+
+.item--total{
+    background-color: var(--secundaryButton);
+    border: 2px solid var(--acento);
+}
+.item--total p{
+    font-weight: var(--textBold);
+    color: var(--acento);
+}
+
+/* Header ---------------------------------------------------------------------------- */
+.header{
+    background-color: var(--acento);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadowsComponents);
+    padding: 1em 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+.header_logo{
+    display: flex;
+    align-items: baseline;
+}
+.logo{
+    color: var(--colorItems);
+    font-size: var(--title);
+    font-weight: var(--textBold);
+    letter-spacing: 3px;
+}
+.logo--c{
+    letter-spacing: 2px;
+}
+.logoIcon{
+    transform: rotate(-90deg) translatex(4px);
+    text-shadow: none;
+    margin-right: 1px;
+}
+.conteinerMenu{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    overflow: hidden;
+}
+.icon{
+    color: var(--colorItems);
+    font-size: 1.7rem;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+}
+
+.menuItems{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    transform: translateY(-100%);
+}
+
+.menuItems--active{
+    transform: translateY(0);
+}
+.rotate{
+    transform: rotate(360deg);
+}
+/* Nav ------------------------------------------------------------------------------- */
+.nav{
+    background-color: var(--acento);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 1em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: var(--shadowsComponents);
+    z-index: 10;
+}
+
+.navIcon--active{
+    scale: 1.5;
+    transform: translateY(-5px);
+}
+/* Ventana Principal ---------------------------------------------------------------------------- */
+.ventanaPrincipal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    height: 100vh;
+}
+#ventanaPreLoader{
+    z-index: 15;
+}
+.ventanaPrincipal p{
+    font-size: 2rem;
+    font-weight: var(--textBold);
+    color: var(--acento);
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+/* Crear Gastos ------------------------------------------------------------------------ */
+.form{
+    width: 100%;
+    padding: 2em 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: var(--shadowsComponents);
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: var(--radius);
+}
+
+/* Registrar Ventas -------------------------------------------------------------------------------- */
+.conteinerCajaVenta{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+.conteinerCantidad{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.conteinerCantidad .input{
+    width: 60px;
+}
+.conteinerCantidad .button{
+    width: 50px;
+}
+.precioVenta{
+    font-weight: var(--textBold);
+}
+
+/* Ventas y cortes del dia ------------------------------------------------------------------ */
+.conteinerVentasDelDia{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.conteinerVentasDelDia .button{
+    width: 150px;
+}
+.conteinerGastosDelDia{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+
+/* Contenedor Resumen ---------------------------------------------------------------------- */
+.conteinerResumen{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.conteinerCortes{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.cortes{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: var(--shadowsComponents);
+    padding: 1em;
+    border-radius: var(--radius);
+}
+
+
+/* AutoComplete Input RegistrarVentas ------------------------------------------------------------- */
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    transform: translateY(-15px);
+}
+li{
+    list-style: none;
+    border: var(--borderInput);
+    padding: .5em 1em;
+    font-size: var(--text);
+    border-radius: var(--radius);
+    font-weight: var(--textBold);
+}
+
+li:hover{
+    background-color: var(--secundaryButton);
+    color: var(--acento);
+    cursor: pointer;
+}
+
+/* Recapitulacion --------------------------------------------------------------------------------- */
+.resumenPrincipal{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.recapitulacionitems{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.recapitulacionTitle{
+    font-weight: var(--textBold);
+}
+
+/* Efecto PreLoader -------------------------------------------------------------------------------- */
+.ventanaPrincipal .letra {
+  opacity: 0;
+  animation: aparecer 1s forwards;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ventanaPrincipal .letra:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.ventanaPrincipal .letra:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.ventanaPrincipal .letra:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.ventanaPrincipal .letra:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.ventanaPrincipal .letra:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.ventanaPrincipal .letra:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.ventanaPrincipal .letra:nth-child(7) {
+  animation-delay: 1.4s;
+}

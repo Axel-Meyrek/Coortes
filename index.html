@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Metas -->
+    <title>Coortes - Administrar tu negocio nunca había sido tan fácil</title>
+    <meta name="title" content="Coortes - Administrar tu negocio nunca había sido tan fácil">
+    <meta name="description" content="Nuestra aplicación de gestión de cortes y ventas te permite tener un control
+    total de tu negocio desde tu dispositivo móvil. Registra tus cortes y ventas diarias y mantén un seguimiento
+    detallado de tus ganancias y pérdidas. Además, nuestra interfaz intuitiva y fácil de usar te permitirá ahorrar
+    tiempo y concentrarte en lo que realmente importa: hacer crecer tu negocio.">
+    <!-- Linkeables -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header------------------------------------------------------------------------------- -->
+    <header class="header">
+        <div class="header_logo">
+            <div class="logo logo--c">C</div>
+            <i class=" logoIcon icon fa-solid fa-scissors"></i>
+            <div class="logo">RTES</div>
+        </div>
+
+        <div class="conteinerMenu">
+            <div class="menuItems">
+                <div id="btnFullScreen" class="menuItems_item"><i class="icon fa-solid fa-expand"></i></div>
+                <div id="btnDarkMode" class="menuItems_item"><i class="icon fa-solid fa-circle-half-stroke icon"></i></div>
+            </div>
+            <div id="btnMenu" class="menu"><i class="icon fa-solid fa-ellipsis-vertical"></i></div>
+        </div>
+    </header>
+
+
+
+
+    <!-- Barra de navegación ----------------------------------------------------------------- -->
+    <nav class="nav">
+        <div id="btnVentanaCreateProducts" class="nav_item"><i class="icon fa-solid fa-box-open"></i></div>
+        <div id="btnVentanaCreateGastos" class="nav_item"><i class="icon fa-solid fa-coins"></i></div>
+        <div id="btnVentanaTusProductos" class="nav_item"><i class="icon fa-solid fa-tags"></i></div>
+        <div id="btnVentanaRegistrarVentas" class="nav_item"><i class="icon fa-solid fa-cart-shopping"></i></div>
+        <div id="btnVentanaVentas" class="nav_item"><i class="icon fa-solid fa-file"></i></div>
+        <div id="btnVentanaCortes" class="nav_item"><i class="icon fa-solid fa-scissors"></i></div>
+    </nav>
+
+
+    <section id="ventanaPreLoader">
+        <div class="conteinerFlex ventanaPrincipal">
+            <p class="letra">C</p>
+            <p class="letra">O</p>
+            <p class="letra">O</p>
+            <p class="letra">R</p>
+            <p class="letra">T</p>
+            <p class="letra">E</p>
+            <p class="letra">S</p> 
+        </div>
+      </section>
+
+
+    <!-- Crear Productos ----------------------------------------------------------------------- -->
+    <section id="ventanaCreateProducts" class="ventanaFlotante">
+        <div class="conteinerFlex">
+            <div class="form">
+                <h2 class="nameSection">Crear Productos</h2>
+                <input id="inputCreateNameProduct" class="input" type="text" placeholder="Nombre de tu producto">
+                <input id="inputCreatePrecioProduct" class="input" type="number" placeholder="Precio de tu producto">
+                <button id="btnCreateProduct" class="button">Crear Producto</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Crear Gastos------------------------------------------------------------------------------- -->
+    <section id="ventanaCreateGastos" class="ventanaFlotante">
+        <div class="conteinerFlex">
+            <div class="form">
+                <h2 class="nameSection">Crear Gastos</h2>
+                <input id="inputCreateNameGasto" class="input" type="text" placeholder="Nombre del gasto">
+                <input id="inputCreatePrecioGasto" class="input" type="number" placeholder="Precio del gasto">
+                <button id="btnCreateGasto" class="button">Añadir Gasto</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Todos tus productos --------------------------------------------------------------------------- -->
+    <section id="ventanaTusProductos" class="ventanaFlotante">
+        <section class="conteinerFlex">
+            <h2 class="nameSection">Tus productos</h2>
+            
+            <!-- Los items se agregan de forma dinamica -->
+            <div id="conteinerItemsProductos" class="conteinerItems"></div>
+        </section>
+    </section>
+
+
+
+
+    <!-- Registrar Ventas ------------------------------------------------------------------------- -->
+    <section id="ventanaRegistrarVentas" class="ventanaFlotante">
+        <div class="conteinerFlex">
+
+            <div class="conteinerCajaVenta">
+                <h2 class="nameSection">Registrar Ventas</h2>
+                <input id="inputRegistrarVenta" class="input" type="text" placeholder="Buscar Producto">
+                <div class="conteinerCantidad">
+                    <p>Cantidad:</p>
+                    <input id="inputCantidad" class="input" type="number" value="1">
+                    <button id="btnAumentarCantidad" class="button">+</button>
+                </div>
+                <p id="precioProduct" class="precioVenta">Total: $0</p>
+                <button id="btnRegistrarVenta" class="button">Registrar</button>
+            </div>
+
+
+            <!-- Las ventas se agregan dinamicamente -->
+            <div id="conteinerVentasDelMomento" class="conteinerItems"></div>
+
+
+            <div class="conteinerBtnTotal">
+                <div class="item item--total">
+                    <p>Total</p>
+                    <p id="itemTotalVentasMomento">$0</p>
+                </div>
+            </div>
+            
+            <button id="btnCargarVentasDiarias" class="button">Cargar Venta</button>
+            
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <!-- Ventas y Cortes del dia ----------------------------------------------------------------- -->
+    <section id="ventanaVentas" class="ventanaFlotante">
+        <div class="conteinerFlex">
+            <div class="conteinerVentasDelDia">
+                <h2 class="nameSection">Ventas del dia</h2>
+                <button id="btnVentanaResumenDelDia" class="button">Realizar Corte <i class="icon fa-solid fa-scissors"></i> </button>
+            </div>
+
+            <div id="conteinerVentasDelDia" class="conteinerItems">
+                
+            </div>
+
+            <div class="item item--total">
+                <p>Total</p>
+                <p id="itemTotalVentasDia">$0</p>
+            </div>
+
+
+
+            <div class="conteinerGastosDelDia">
+                <h2 class="nameSection">Gastos del dia</h2>
+            </div>
+
+            <div id="conteinerItemsGastos" class="conteinerItems"></div>
+
+            <div class="item item--total">
+                <p>Total</p>
+                <p id="itemTotalGastos">$500</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Resumen del dia ------------------------------------------------------------------ -->
+    <section id="ventanaResumenVenta" class="ventanaFlotante">
+        <div class="conteinerFlex">
+            <h2 class="nameSection">Resumen del dia</h2>
+            <!-- El resumen se agrega de forma dinamica -->
+            <div id="conteinerResumen" class="conteinerResumen"></div>
+            <button id="btnSaveCorte" class="button">Guardar Corte<i class="icon fa-solid fa-scissors"></i> </button>
+        </div>
+    </section>
+
+
+
+
+
+
+    <!-- Todos los Cortes ----------------------------------------------------------------- -->
+    <section id="ventanaCortes" class="ventanaFlotante">
+        <div class="conteinerFlex">
+            <div class="conteinerDatosCortes">
+                <h2 class="nameSection">Todos los cortes</h2>
+            </div>
+
+            <!-- Los cortes se agregan dinamicamente -->
+            <div id="conteinerCortes" class="conteinerCortes">
+                <div class="cortes">
+                    <p>Lunes 23 de Marzo de 2023</p>
+                    <p>Total de Ventas: $560</p>
+                    <p>Total de Gastos: $560</p>
+                    <p>Corte Final: $420</p>
+                </div>
+                <div class="cortes">
+                    <p>Lunes 23 de Marzo de 2023</p>
+                    <p>Total de Ventas: $560</p>
+                    <p>Total de Gastos: $560</p>
+                    <p>Corte Final: $420</p>
+                </div>
+                <div class="cortes">
+                    <p>Lunes 23 de Marzo de 2023</p>
+                    <p>Total de Ventas: $560</p>
+                    <p>Total de Gastos: $560</p>
+                    <p>Corte Final: $420</p>
+                </div>
+                <div class="cortes">
+                    <p>Lunes 23 de Marzo de 2023</p>
+                    <p>Total de Ventas: $560</p>
+                    <p>Total de Gastos: $560</p>
+                    <p>Corte Final: $420</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Recapitulación -->
+    <section id="ventanaRecapitulacion" class="ventanaFlotante">
+        <div class="conteinerFlex">
+
+            <div id="recapitulacionResumen" class="resumenPrincipal">
+                <p class="recapitulacionTitle">Lunes 23 de Marzo de 2023</p>
+                <p>Total de Ventas: $320</p>
+                <p>Total de Gastos: $200</p>
+                <p>Corte Final: $240</p>
+            </div>
+
+            <p class="recapitulacionTitle">Ventas del Dia</p>
+            <!-- Las ventas se agregan de forma dinamica -->
+            <div id="recapitulacionVentas" class="recapitulacionitems"></div>
+            
+            
+            <p class="recapitulacionTitle">Gastos del Dia</p>
+            <!-- Los gastos se agrean de forma dinamica -->
+            <div id="recapitulacionGastos" class="recapitulacionitems"></div>
+
+            <button id="btnSalirRecapitulacion" class="button">Salir</button>
+        </div>
+    </section>
+
+
+
+    <!-- Scripts ------------------------------------------------------------------------- -->
+    <script src="https://kit.fontawesome.com/7b35ff6dce.js" crossorigin="anonymous"></script>
+    <script src="UX.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
